@@ -24,7 +24,8 @@ jobs:
       - name: Setup flutter
         uses: subosito/flutter-action@v1
         with:
-          channel: "master"
+          flutter-version: '2.10.4'
+          architecture: arm64
       - name: Install tools
         run: |
           flutter pub get
