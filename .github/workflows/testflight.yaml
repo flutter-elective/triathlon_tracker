@@ -17,6 +17,7 @@ jobs:
           gem install --user-install bundler
           bundle config set path 'vendor/bundle'
           bundle install
+      - run: ls ./ios
       - name: Setup JDK
         uses: actions/setup-java@v1
         with:
