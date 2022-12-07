@@ -34,7 +34,8 @@ jobs:
           flutter precache --ios 
           pod install --repo-update
       - name: Upload to testflight
-        run: 
+        run:
+          cd ./ios
           fastlane ios upload_to_tf
 
   
