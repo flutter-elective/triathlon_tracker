@@ -24,7 +24,6 @@ jobs:
       - name: Setup flutter
         uses: subosito/flutter-action@v1
         with:
-          flutter-version: "1.17.0"
           channel: "master"
       - name: Install tools
         run: |
