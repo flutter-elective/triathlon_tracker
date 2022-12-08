@@ -45,6 +45,7 @@ jobs:
           cd ./ios
           flutter precache --ios 
           pod install --repo-update
+      - run: cd ~/.ssh/; ssh-add
       - name: Upload to testflight
         run: |
           cd ./ios
