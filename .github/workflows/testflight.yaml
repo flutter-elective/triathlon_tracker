@@ -13,6 +13,7 @@ env:
   APPLE_KEY_CONTENT: ${{ secrets.APPLE_KEY_CONTENT }}
   GIT_AUTHORIZATION: ${{ secrets.GIT_AUTHORIZATION }}
   ALL_TARGETS: ${{ secrets.ALL_TARGETS }}
+  GIT_SSH_COMMAND: "ssh -vvv"
 
 jobs:
   build_and_deploy:
