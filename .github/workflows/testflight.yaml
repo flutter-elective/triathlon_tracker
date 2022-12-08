@@ -49,6 +49,7 @@ jobs:
         run: |
           pwd
           sudo ssh-keyscan git.lipsar.studio > /Users/runner/.ssh/known_hosts2
+          sudo chown -v $USER /etc/ssh/ssh_known_hosts
           sudo ssh-keyscan git.lipsar.studio > /etc/ssh/ssh_known_hosts
           sudo ssh-keyscan git.lipsar.studio > /etc/ssh/ssh_known_hosts2
           cd ./ios
