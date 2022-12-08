@@ -47,7 +47,6 @@ jobs:
           pod install --repo-update
       - name: Upload to testflight
         run: |
-          ssh-keyscan -H git@git.lipsar.studio >> /Users/runner/.ssh/known_hosts2
           cd ./ios
           fastlane ios upload_to_tf --verbose
 

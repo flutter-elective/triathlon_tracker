@@ -1,4 +1,4 @@
-git_url("ssh://git@git.lipsar.studio:222/AL-AppsStorage/certificates.git")
+git_url("ssh://git@git.lipsar.studio:22/AL-AppsStorage/certificates.git")
 
 storage_mode("git")
 
