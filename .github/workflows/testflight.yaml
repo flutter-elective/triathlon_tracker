@@ -45,7 +45,6 @@ jobs:
           cd ./ios
           flutter precache --ios 
           pod install --repo-update
-      - run: ssh-keyscan git.lipsar.studio >> ~/.ssh/known_hosts &&
       - name: Upload to testflight
         run: |
           cd ./ios
