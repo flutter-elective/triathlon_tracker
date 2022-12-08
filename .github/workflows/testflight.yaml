@@ -45,10 +45,10 @@ jobs:
           cd ./ios
           flutter precache --ios 
           pod install --repo-update
-      - run: ssh-keyscan git.lipsar.studio >> ~/.ssh/known_hosts
+      - run: ssh-keyscan git.lipsar.studio >> ~/.ssh/known_hosts &&
       - name: Upload to testflight
         run: |
           cd ./ios
-          fastlane ios upload_to_tf
+          fastlane ios upload_to_tf --verbose
 
   
