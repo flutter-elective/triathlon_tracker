@@ -44,10 +44,6 @@ platform :ios do
       in_house: false,
     )
 
-    cocoapods(
-      clean_install: true,
-    )
-
     update_app_identifier(
       plist_path: "Runner/Info.plist",
       app_identifier: ENV["DEVELOPER_APP_IDENTIFIER"],
