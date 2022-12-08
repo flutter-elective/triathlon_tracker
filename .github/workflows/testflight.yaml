@@ -49,8 +49,8 @@ jobs:
         run: |
           pwd
           touch /Users/runner/.ssh/known_hosts2
-          touch /etc/ssh/ssh_known_hosts
-          touch /etc/ssh/ssh_known_hosts2
+          sudo touch /etc/ssh/ssh_known_hosts
+          sudo touch /etc/ssh/ssh_known_hosts2
           cd ./ios
           fastlane ios upload_to_tf --verbose
 
