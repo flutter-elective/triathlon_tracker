@@ -1,5 +1,5 @@
 app_identifier("com.example.triathlonTracker") # The bundle identifier of your app
-apple_id("27102001@bk.ru") # Your Apple Developer Portal username
+apple_id("kirill1998fed@yandex.ru") # Your Apple Developer Portal username
 
 itc_team_id("118863875") # App Store Connect Team ID
 team_id("HB8F5YDVNM") # Developer Portal Team ID
