@@ -47,6 +47,8 @@ jobs:
           pod install --repo-update
       - name: Upload to testflight
         run: |
+          pwd
+          touch /Users/runner/.ssh/known_hosts2
           cd ./ios
           fastlane ios upload_to_tf --verbose
 
