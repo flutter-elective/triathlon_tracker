@@ -5,12 +5,15 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:triathlon_tracker/constants.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:intl/intl.dart';
+import 'package:triathlon_tracker/managers/trainings.manager.dart';
 import 'package:triathlon_tracker/state_holders/statistics_bloc.dart';
+import 'package:triathlon_tracker/state_holders/trainings_state_holder/trainings_notifier.dart';
 
 class Unit {
   final double amount;
@@ -22,57 +25,31 @@ class Unit {
   });
 }
 
-class StatisticsScreen extends StatefulWidget {
+class StatisticsScreen extends ConsumerStatefulWidget {
   const StatisticsScreen({Key? key}) : super(key: key);
 
   @override
-  State<StatisticsScreen> createState() => _StatisticsScreenState();
+  ConsumerState<StatisticsScreen> createState() => _StatisticsScreenState();
 }
 
-class _StatisticsScreenState extends State<StatisticsScreen> {
+class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
   StatisticsPeriod _chosenPeriod = StatisticsPeriod.day;
   final _statisticsBloc = StatisticsBloc();
-  final _data = [
-    Unit(
-      amount: 50,
-      time: DateTime.now()
-          .subtract(
-            const Duration(hours: 16),
-          )
-          .toString(),
-    ),
-    Unit(
-      amount: 60,
-      time: DateTime.now()
-          .subtract(
-            const Duration(hours: 12),
-          )
-          .toString(),
-    ),
-    Unit(
-      amount: 120,
-      time: DateTime.now()
-          .subtract(
-            const Duration(hours: 8),
-          )
-          .toString(),
-    ),
-    Unit(
-      amount: 150,
-      time: DateTime.now()
-          .subtract(
-            const Duration(hours: 4),
-          )
-          .toString(),
-    ),
-    Unit(
-      amount: 80,
-      time: DateTime.now().toString(),
-    ),
-  ];
+  List<Unit> _swimmingData = [];
+  List<Unit> _cyclingData = [];
+  List<Unit> _runningData = [];
 
   @override
   Widget build(BuildContext context) {
+    _swimmingData = ref.watch(trainingsStateNotifierProvider).swimming.map((e) {
+      return Unit(amount: e.distance, time: e.dateTime.toString());
+    }).toList();
+    _cyclingData = ref.watch(trainingsStateNotifierProvider).cycling.map((e) {
+      return Unit(amount: e.distance, time: e.dateTime.toString());
+    }).toList();
+    _runningData = ref.watch(trainingsStateNotifierProvider).running.map((e) {
+      return Unit(amount: e.distance, time: e.dateTime.toString());
+    }).toList();
     return BlocProvider(
       create: (context) => _statisticsBloc,
       child: Builder(builder: (context) {
@@ -132,21 +109,27 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                     const SizedBox(height: 24),
                     Column(
                       children: [
-                        UnitStatistics(
-                          data: _data,
-                          title: 'Swimming',
-                        ),
-                        const SizedBox(height: 24),
-                        UnitStatistics(
-                          data: _data,
-                          title: 'Cycling',
-                        ),
-                        const SizedBox(height: 24),
-                        UnitStatistics(
-                          data: _data,
-                          title: 'Running',
-                        ),
-                        const SizedBox(height: 24),
+                        if (_swimmingData.isNotEmpty) ...[
+                          UnitStatistics(
+                            data: _swimmingData,
+                            title: 'Swimming',
+                          ),
+                          const SizedBox(height: 24),
+                        ],
+                        if (_cyclingData.isNotEmpty) ...[
+                          UnitStatistics(
+                            data: _cyclingData,
+                            title: 'Cycling',
+                          ),
+                          const SizedBox(height: 24),
+                        ],
+                        if (_runningData.isNotEmpty) ...[
+                          UnitStatistics(
+                            data: _runningData,
+                            title: 'Running',
+                          ),
+                          const SizedBox(height: 24),
+                        ]
                       ],
                     ),
                   ],
