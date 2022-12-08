@@ -3,6 +3,14 @@ on:
   push:
     branches: [testflight_release]
 
+env:
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  BUNDLE_ID: ${{ secrets.BUNDLE_ID }}
+  TEAM_ID: ${{ secrets.TEAM_ID }}
+  VERSION: ${{ secrets.VERSION }}
+  BUILD_NUMBER: ${{ secrets.BUILD_NUMBER }}
+
+
 jobs:
   build_and_deploy:
     runs-on: macos-latest
