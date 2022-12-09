@@ -6,6 +6,7 @@ on:
 jobs:
   build_and_deploy:
     runs-on: macos-latest
+    environment: TestFlight
     steps:
       - uses: actions/checkout@v2
       - uses: maxim-lobanov/setup-xcode@v1
