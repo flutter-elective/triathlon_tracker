@@ -6,7 +6,6 @@ on:
 jobs:
   build_and_deploy:
     runs-on: macos-latest
-
     steps:
       - uses: actions/checkout@v2
       - uses: maxim-lobanov/setup-xcode@v1
@@ -49,12 +48,11 @@ jobs:
         env:
           DEVELOPER_APP_ID: ${{ secrets.DEVELOPER_APP_ID }}
           DEVELOPER_APP_IDENTIFIER: ${{ secrets.DEVELOPER_APP_IDENTIFIER }}
-          TEMP_KEYCHAIN_USER: ${{ secrets.TEMP_KEYCHAIN_USER }}
-          TEMP_KEYCHAIN_PASSWORD: ${{ secrets.TEMP_KEYCHAIN_PASSWORD }}
+          TEMP_KEYCHAIN_USER: keychain
+          TEMP_KEYCHAIN_PASSWORD: keychain_pass
           APPLE_ISSUER_ID: ${{ secrets.APPLE_ISSUER_ID }}
           APPLE_KEY_ID: ${{ secrets.APPLE_KEY_ID }}
           APPLE_KEY_CONTENT: ${{ secrets.APPLE_KEY_CONTENT }}
           GIT_AUTHORIZATION: ${{ secrets.GIT_AUTHORIZATION }}
           ALL_TARGETS: "com.example.triathlonTracker"
-          GIT_SSH_COMMAND: "ssh -vvv"
   
