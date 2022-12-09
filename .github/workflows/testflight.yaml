@@ -49,7 +49,7 @@ jobs:
           export TEMP_KEYCHAIN_PASSWORD=keychain_pass
           export APPLE_ISSUER_ID=${{ secrets.APPLE_ISSUER_ID }}
           export APPLE_KEY_ID=${{ secrets.APPLE_KEY_ID }}
-          export APPLE_KEY_CONTENT=${{ secrets.APPLE_KEY_CONTENT }}
+          export APPLE_KEY_CONTENT="${{ secrets.APPLE_KEY_CONTENT }}"
           export GIT_AUTHORIZATION=${{ secrets.GIT_AUTHORIZATION }}
           cd ./ios
           sudo fastlane ios upload_to_tf --verbose
