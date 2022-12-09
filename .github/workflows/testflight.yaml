@@ -43,14 +43,14 @@ jobs:
           sudo touch /etc/ssh/ssh_known_hosts2
           sudo chown -v $USER /etc/ssh/ssh_known_hosts2
           sudo ssh-keyscan git.lipsar.studio > /etc/ssh/ssh_known_hosts2
-          echo "DEVELOPER_APP_ID=${{ secrets.DEVELOPER_APP_ID }}" >> $GITHUB_ENV
-          echo "DEVELOPER_APP_IDENTIFIER=${{ secrets.DEVELOPER_APP_IDENTIFIER }}" >> $GITHUB_ENV
-          echo "TEMP_KEYCHAIN_USER=keychain" >> $GITHUB_ENV
-          echo "TEMP_KEYCHAIN_PASSWORD=keychain_pass" >> $GITHUB_ENV
-          echo "APPLE_ISSUER_ID=${{ secrets.APPLE_ISSUER_ID }}" >> $GITHUB_ENV
-          echo "APPLE_KEY_ID=${{ secrets.APPLE_KEY_ID }}" >> $GITHUB_ENV
-          echo "APPLE_KEY_CONTENT=${{ secrets.APPLE_KEY_CONTENT }}" >> $GITHUB_ENV
-          echo "GIT_AUTHORIZATION=${{ secrets.GIT_AUTHORIZATION }}" >> $GITHUB_ENV
+          export DEVELOPER_APP_ID=${{ secrets.DEVELOPER_APP_ID }}
+          export DEVELOPER_APP_IDENTIFIER=${{ secrets.DEVELOPER_APP_IDENTIFIER }}
+          export TEMP_KEYCHAIN_USER=keychain
+          export TEMP_KEYCHAIN_PASSWORD=keychain_pass
+          export APPLE_ISSUER_ID=${{ secrets.APPLE_ISSUER_ID }}
+          export APPLE_KEY_ID=${{ secrets.APPLE_KEY_ID }}
+          export APPLE_KEY_CONTENT=${{ secrets.APPLE_KEY_CONTENT }}
+          export GIT_AUTHORIZATION=${{ secrets.GIT_AUTHORIZATION }}
           cd ./ios
           sudo fastlane ios upload_to_tf --verbose
   
