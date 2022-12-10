@@ -32,7 +32,11 @@ samples, guidance on mobile development, and a full API reference.
 
 | Onboarding set name | Onboarding set goal | Home page | Home page add training |
 | ------------- | ------------- | ------------- | ------------- 
-| ![app](/readme_assetes/app.png) | ![app](/readme_assetes/app1.png) | ![app](/readme_assetes/app2.png) | ![app](/readme_assetes/app3.png) |
+| ![app](/readme_assetes/app.png) | ![app](/readme_assetes/app2.png) | ![app](/readme_assetes/app3.png) | ![app](/readme_assetes/app4.png) |
+
+| Statistics screen | Application Icon 
+|------------- | ------------- 
+| ![app](/readme_assetes/app5.png) | ![app](/readme_assetes/app6.png) |
 
 # Build for iOS
 
@@ -40,4 +44,4 @@ samples, guidance on mobile development, and a full API reference.
 
 # APK Link
 
-[APK Link](https://drive.google.com/file/d/1PLXeZCBQ6uiOvoB0TAF8xEozSfgPIf5H/view)
+[APK Link](https://drive.google.com/file/d/1m2k6AMKOoTG9rNv3d18V0rzu-HMgoQ_H/view?usp=share_link)
