@@ -1,7 +1,7 @@
 name: Check formating, linting, tests, and build apk
 on:
     push:
-      branches: [deploy]
+      branches: [build_app]
 
 
 jobs:
