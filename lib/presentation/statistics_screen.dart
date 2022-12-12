@@ -408,15 +408,21 @@ class _UnitStatisticsState extends State<UnitStatistics>
               }
               _controllers[_chosenItem].forward();
               _previousItem = _chosenItem;
-              BlocProvider.of<StatisticsBloc>(context).add(StatisticsEvent(
-                  period: _currentPeriod ?? StatisticsPeriod.day,),);
+              BlocProvider.of<StatisticsBloc>(context).add(
+                StatisticsEvent(
+                  period: _currentPeriod ?? StatisticsPeriod.day,
+                ),
+              );
             } else {
               _controllers[_chosenItem].reverse();
               _chosenItem = -1;
               _previousItem = -1;
               _currentDx = -1;
-              BlocProvider.of<StatisticsBloc>(context).add(StatisticsEvent(
-                  period: _currentPeriod ?? StatisticsPeriod.day,),);
+              BlocProvider.of<StatisticsBloc>(context).add(
+                StatisticsEvent(
+                  period: _currentPeriod ?? StatisticsPeriod.day,
+                ),
+              );
             }
           }
         },
@@ -430,9 +436,10 @@ class _UnitStatisticsState extends State<UnitStatistics>
         verticalInterval: 1,
         getDrawingHorizontalLine: (value) {
           return FlLine(
-              color: const Color(0xFFD6D7E4),
-              strokeWidth: 1,
-              dashArray: [2, 4],);
+            color: const Color(0xFFD6D7E4),
+            strokeWidth: 1,
+            dashArray: [2, 4],
+          );
         },
         getDrawingVerticalLine: (value) {
           return FlLine(
@@ -444,20 +451,21 @@ class _UnitStatisticsState extends State<UnitStatistics>
         show: true,
         rightTitles: AxisTitles(
           sideTitles: SideTitles(
-              showTitles: true,
-              reservedSize: 10,
-              getTitlesWidget: (val, meta) => Container(),),
+            showTitles: true,
+            reservedSize: 10,
+            getTitlesWidget: (val, meta) => Container(),
+          ),
         ),
         topTitles: AxisTitles(
           sideTitles: SideTitles(showTitles: false),
         ),
         bottomTitles: AxisTitles(
           sideTitles: SideTitles(
-              showTitles: true,
-              reservedSize: 22,
-              interval: 1,
-              getTitlesWidget: (val, meta) => Container(), //bottomTitleWidgets,
-              ),
+            showTitles: true,
+            reservedSize: 22,
+            interval: 1,
+            getTitlesWidget: (val, meta) => Container(), //bottomTitleWidgets,
+          ),
         ),
         leftTitles: AxisTitles(
           sideTitles: SideTitles(
@@ -486,18 +494,19 @@ class _UnitStatisticsState extends State<UnitStatistics>
           barWidth: 2,
           isStrokeCapRound: true,
           dotData: FlDotData(
-              show: true,
-              getDotPainter: (spot, percent, barData, index) {
-                return FlDotCirclePainter(
-                  radius: 3,
-                  color: Colors.white,
-                  strokeWidth: 3,
-                  strokeColor: const Color(0xFF4A4999),
-                );
-              },
-              checkToShowDot: (spot, barData) {
-                return spot.x == _currentDx;
-              },),
+            show: true,
+            getDotPainter: (spot, percent, barData, index) {
+              return FlDotCirclePainter(
+                radius: 3,
+                color: Colors.white,
+                strokeWidth: 3,
+                strokeColor: const Color(0xFF4A4999),
+              );
+            },
+            checkToShowDot: (spot, barData) {
+              return spot.x == _currentDx;
+            },
+          ),
           shadow: Shadow(
             color: const Color(0xFFFF9CBA).withOpacity(0.4),
             blurRadius: 4,
