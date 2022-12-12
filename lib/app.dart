@@ -25,22 +25,22 @@ class App extends ConsumerWidget {
         );
 
     return ScreenUtilInit(
-        designSize: const Size(414, 896),
-        minTextAdapt: true,
-        builder: (BuildContext context, Widget? child) {
-          return MaterialApp(
-            theme: AppTheme.theme(themeColor, colors),
-            localizationsDelegates: [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: S.supportedLocales,
-            locale: locale,
-            home:
-                isLogged ? const LandingScreen() : const OnBoardingMainScreen(),
-          );
-        });
+      designSize: const Size(414, 896),
+      minTextAdapt: true,
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp(
+          theme: AppTheme.theme(themeColor, colors),
+          localizationsDelegates: [
+            S.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          supportedLocales: S.supportedLocales,
+          locale: locale,
+          home: isLogged ? const LandingScreen() : const OnBoardingMainScreen(),
+        );
+      },
+    );
   }
 }
